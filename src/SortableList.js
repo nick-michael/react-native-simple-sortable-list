@@ -420,7 +420,6 @@ export default class SortableList extends Component {
     nextOrder.splice(this._initialRowIndex, 1);
     nextOrder.splice(this._hoverIndex, 0, this.state.order[this._initialRowIndex]);
 
-    this._hoverIndex = undefined;
     this._stopAutoScroll();
     this.setState(({activeRowKey}) => ({
       order: nextOrder,
@@ -428,10 +427,11 @@ export default class SortableList extends Component {
       releasedRowKey: activeRowKey,
       scrollEnabled: this.props.scrollEnabled,
     }));
-
+    
     if (this.props.onReleaseRow) {
       this.props.onReleaseRow(this._initialRowIndex, this._hoverIndex);
     }
+    this._hoverIndex = undefined;
   };
 
   _onMoveRow = (e, gestureState, location, layout) => {
