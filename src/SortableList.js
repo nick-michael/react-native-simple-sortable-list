@@ -192,7 +192,7 @@ export default class SortableList extends Component {
       const style = {[ZINDEX]: 0};
       const location = {x: 0, y: 0};
 
-      if (rowsLayouts) {
+      if (rowsLayouts && typeof(rowsLayouts[key]) !== 'undefined') {
         location.y = nextY;
         nextY += rowsLayouts[key].height;
       }
@@ -268,7 +268,7 @@ export default class SortableList extends Component {
     if (activeRowKey === null || this._autoScrollInterval) {
       return;
     }
-    
+
     if (this._hoverIndex > this._initialRowIndex) {
       // Moving Down
       for (let i = 0; i < order.length; i++) {
@@ -387,6 +387,7 @@ export default class SortableList extends Component {
   _stopAutoScroll() {
     clearInterval(this._autoScrollInterval);
     this._autoScrollInterval = null;
+    this._setOrderOnMove();
   }
 
   _onLayoutRow(rowKey, {nativeEvent: {layout}}) {
@@ -453,8 +454,9 @@ export default class SortableList extends Component {
         i = this.state.order.length;
       }
     }
-
+    
     if (hoverIndex === this._hoverIndex || typeof(hoverIndex) === 'undefined' ) {
+      this._hoverIndex = hoverIndex;
       return;
     }
 

@@ -86,7 +86,7 @@ export default class Row extends Component {
         gestureState.numberActiveTouches > 1 ||
         e.nativeEvent.target !== this._target
       ) {
-        if (!this._isTouchInsideElement(e)) {
+        if (Math.abs(gestureState.vy) > 0.1 || Math.abs(gestureState.dy) > 5) {
           this._cancelLongPress();
         }
 
