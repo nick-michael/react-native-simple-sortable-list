@@ -1,0 +1,25 @@
+{
+  "name": "react-native-simple-sortable-list",
+  "version": "0.0.1",
+  "description": "React Native Drag and Drop ListView",
+  "main": "index.js",
+  "peerDependencies": {
+    "prop-types": "15.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick-michael/react-native-simple-sortable-list.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "list",
+    "drag-and-drop"
+  ],
+  "author": "nick-michael",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nick-michael/react-native-simple-sortable-list/issues"
+  },
+  "homepage": "https://github.com/nick-michael/react-native-simple-sortable-list#readme"
+}
