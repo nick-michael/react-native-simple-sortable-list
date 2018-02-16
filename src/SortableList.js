@@ -429,7 +429,7 @@ export default class SortableList extends Component {
     }));
     
     if (this.props.onReleaseRow) {
-      this.props.onReleaseRow(this._initialRowIndex, this._hoverIndex);
+      this.props.onReleaseRow(this._initialRowIndex, this._hoverIndex, nextOrder);
     }
     this._hoverIndex = undefined;
   };
