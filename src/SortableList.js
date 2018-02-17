@@ -16,7 +16,6 @@ uniqueRowKey.id = 0
 export default class SortableList extends Component {
   static propTypes = {
     data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired, 
-    custom: PropTypes.object, 
     order: PropTypes.arrayOf(PropTypes.any),
     style: ViewPropTypes.style,
     contentContainerStyle: ViewPropTypes.style,
@@ -182,7 +181,7 @@ export default class SortableList extends Component {
   }
 
   _renderRows() {
-    const {rowActivationTime, sortingEnabled, renderRow, custom} = this.props;
+    const {rowActivationTime, sortingEnabled, renderRow} = this.props;
     const {animated, order, data, activeRowKey, releasedRowKey, rowsLayouts} = this.state;
 
 
@@ -228,7 +227,6 @@ export default class SortableList extends Component {
             disabled: !sortingEnabled,
             active,
             index,
-            custom,
           })}
         </Row>
       );
